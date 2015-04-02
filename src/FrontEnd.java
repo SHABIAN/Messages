@@ -24,7 +24,6 @@ public class FrontEnd {
 		
 		//Vertical Box
 		Box vB = Box.createVerticalBox();
-		vB.add(Box.createVerticalStrut(10));
 		
 		//Components of Window
 		Box username = Box.createHorizontalBox();
@@ -56,7 +55,21 @@ public class FrontEnd {
 		//Display Box
 		textArea.add(tA);
 		
+		//Putting the Shit together -_-
+		vB.add(username);
+		vB.add(message);
+		vB.add(buttons);
+		vB.add(textArea);
+		myFrame.add(vB);
+		
+		//DONT FORGET**
 		myFrame.pack();
 		myFrame.setVisible(true);
+		
+		/*
+		 * Things to do next Block:
+		 * ScrollPane
+		 * Button Listeners
+		 */
 	}
 }
