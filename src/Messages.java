@@ -19,5 +19,14 @@ public class Messages
 	{
 		return mess;
 	}
+	public String toString()
+	{
+		String s;
+		s = this.getUser();
+		for(int i = 0;i<this.getMessages().size();i++)
+			s= s + this.getMessages().get(i);
+		return s;
+	}
+
 
 }
