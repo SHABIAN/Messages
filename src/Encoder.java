@@ -14,7 +14,7 @@ public class Encoder
 	}
 	public List<String> read()
 	{
-		
+		return null;
 	}
 
 }
