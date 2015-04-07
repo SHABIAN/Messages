@@ -1,4 +1,9 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+
+import javax.swing.JFileChooser;
 
 
 
@@ -7,9 +12,15 @@ import java.util.ArrayList;
 public class BackEnd 
 {
 	ArrayList<Messages> mes;
+	Encoder e;
+	File f;
 	public BackEnd()
 	{
 	mes = new ArrayList<Messages>();
+	
+	JFileChooser jc = new JFileChooser("../"); //Jfilechooser to find file to incode too
+	f= jc.getSelectedFile();
+	e = new Encoder(f);
 	}
 	public ArrayList<String> getMessage(String us)
 	{
@@ -29,13 +40,19 @@ public class BackEnd
 	{
 		ArrayList<String> messs = new ArrayList<String>();
 		messs.add(mess);
+		Messages m = new Messages(us,messs);
 		if(this.getUser() == null)//if user name doesn't exist
-			mes.add(new Messages(us,messs)); //add username and message
+		{
+			mes.add(m); //add username and message
+			
+			e.write(m.toString());
+		}
 		else
 			for(int i = 0; i<mes.size();i++) //otherwise find the username
 				if(mes.get(i).getUser().equals(us))
 				{
 					mes.get(i).getMessages().add(mess); //and add a new message
+					e.write(m.toString());
 				}
 	
 		
@@ -54,5 +71,4 @@ public class BackEnd
 	{
 		return mes;
 	}
-
 }
