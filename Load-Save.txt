@@ -1,0 +1,54 @@
+	public void doSave()
+	{
+		
+		if(currentFile== null){
+			this.doSaveAs();
+		}
+		PrintWriter p;
+		try {
+			p = new PrintWriter(currentFile);
+			p.print(myFrame.getPane().getText());
+			p.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+	}
+
+	/** The operation to be performed if the user selects "Save As..." from
+	 *  the File menu:
+	 *
+	 *
+	 */
+	public void doSaveAs()
+	{
+		JFileChooser c = new JFileChooser();
+		int x = c.showSaveDialog(myFrame);
+		currentFile = c.getSelectedFile();
+		this.doSave();
+		// use a FileChooser object (see JavaDocs) to select a File???
+		// doSave()???
+
+		System.out.println("save as...");
+	}
+
+	/** The operation to be performed if the user selects "Close" from
+	 *  the File menu:
+	 *
+	 *
+	 */
+	public void doClose()
+	{
+		// prompt to save, if necessary???
+		// setVisible(false) the parent frame???
+		if(myFrame.getPane().getText() != null){
+			int x = JOptionPane.showConfirmDialog(null, "Do you want to save?", "", JOptionPane.YES_NO_CANCEL_OPTION);
+			if(x == JOptionPane.YES_OPTION){
+				this.doSaveAs();
+			}
+		myFrame.dispose();
+		}
+		myFrame.dispose();
+	}
