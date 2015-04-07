@@ -6,8 +6,11 @@ import java.util.ArrayList;
 
 public class BackEnd 
 {
-	private ArrayList<Messages> mes = new ArrayList<Messages>();
-	
+	ArrayList<Messages> mes;
+	public BackEnd()
+	{
+	mes = new ArrayList<Messages>();
+	}
 	public ArrayList<String> getMessage(String us)
 	{
 		ArrayList<String> mess = new ArrayList<String>(); //new array list
@@ -46,6 +49,10 @@ public class BackEnd
 			us.add(mes.get(i).getUser());
 		return us;//output all usernames
 		
+	}
+	public ArrayList<Messages> getList()
+	{
+		return mes;
 	}
 
 }
