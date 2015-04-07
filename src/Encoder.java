@@ -12,7 +12,7 @@ public class Encoder
 	{
 		
 	}
-	public List<String> read();
+	public List<String> read()
 	{
 		
 	}
