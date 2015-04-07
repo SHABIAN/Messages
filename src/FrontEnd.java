@@ -1,7 +1,17 @@
+		/*
+		 * IDK HOW TO DO THE FUCKING SCROLL PANE!
+		 * 
+		 */
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -10,6 +20,8 @@ public class FrontEnd {
 	private JFrame myFrame;
 	private JButton add;
 	private JButton get;
+	private BackEnd bE = new BackEnd();
+	private JScrollPane sP = new JScrollPane();
 
 	public FrontEnd(){
 		
@@ -62,14 +74,28 @@ public class FrontEnd {
 		vB.add(textArea);
 		myFrame.add(vB);
 		
+		//BUTTONSmaru :D
+		add.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				String username = userT.getText();
+				String message = messT.getText();
+				bE.addMessage(username, message);
+			}});
+		
+		get.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				String username = userT.getText();
+				bE.getMessage(username);
+			}});
+		
+		
 		//DONT FORGET**
 		myFrame.pack();
 		myFrame.setVisible(true);
 		
-		/*
-		 * Things to do next Block:
-		 * ScrollPane
-		 * Button Listeners
-		 */
 	}
 }
