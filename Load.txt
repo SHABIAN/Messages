@@ -1,0 +1,23 @@
+	public void doOpen()
+	{
+		// use a FileChooser object (see JavaDocs) to select a File???
+		// use a Scanner to read the contents of the file???
+		// set the text of myPane to be the contents read from the file???
+		JFileChooser chooser = new JFileChooser("../");
+		int x = chooser.showOpenDialog(myFrame);
+		if(x == JFileChooser.APPROVE_OPTION){
+			File f = chooser.getSelectedFile();
+			
+			String s = "";
+			try{
+			Scanner fin = new Scanner(f);
+			while(fin.hasNextLine()){
+				s += fin.nextLine() + "\n";
+			}
+			} catch(FileNotFoundException e){
+				e.printStackTrace();
+			}
+			myFrame.getPane().setText(s);
+		}
+		
+	}
