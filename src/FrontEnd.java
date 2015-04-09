@@ -7,6 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 //import java.util.ArrayList;
 
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -81,7 +84,15 @@ public class FrontEnd {
 				// TODO Auto-generated method stub
 				String username = userT.getText();
 				String message = messT.getText();
-				bE.addMessage(username, message);
+				try {
+					bE.addMessage(username, message);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}});
 		
 		get.addActionListener(new ActionListener(){

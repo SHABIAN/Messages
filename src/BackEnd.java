@@ -1,4 +1,6 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 //import java.io.FileNotFoundException;
 //import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ public class BackEnd
 		return null;
 	}
 	
-	public void addMessage(String us, String mess)
+	public void addMessage(String us, String mess) throws FileNotFoundException, UnsupportedEncodingException
 	{
 	
 		ArrayList<String> messs = new ArrayList<String>();
@@ -50,6 +52,7 @@ public class BackEnd
 			System.out.println("0");
 		
 		}
+		else
 		for(int i = 0; i<mes.size();i++) //find username
 			{
 			if(mes.get(i).getUser().equals(us))

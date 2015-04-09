@@ -14,23 +14,16 @@ public class Encoder
 	{
 		f= File;
 	}
-	public void write(String plaintext)
+	public void write(String plaintext) throws FileNotFoundException, UnsupportedEncodingException
 	{
 		
 			PrintWriter p;
 
-				try {
-					p = new PrintWriter(f,plaintext);
+				
+					p = new PrintWriter(f);
 					p.print(plaintext);
 					p.close();
 				
-				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 			
 			
 	}
