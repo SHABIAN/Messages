@@ -25,6 +25,15 @@ public class BackEnd
 	f= jc.getSelectedFile();
 	e = new Encoder(f);
 	}
+	public void  MegaWrite() throws FileNotFoundException, UnsupportedEncodingException
+	{
+		String s = null;
+		for(int i = 0;i<mes.size();i++)
+		{
+			s=s+"	"+mes.get(i).toString();
+		}
+		e.write(s);
+	}
 	public ArrayList<String> getMessage(String us)
 	{
 		ArrayList<String> mess = new ArrayList<String>(); //new array list
@@ -48,7 +57,7 @@ public class BackEnd
 		if((mes.size()==0))
 		{
 			mes.add(m); //add username and message
-			e.write(m.toString());
+			this.MegaWrite();
 			System.out.println("0");
 		
 		}
@@ -59,7 +68,7 @@ public class BackEnd
 			
 				{
 					mes.get(i).getMessages().add(mess); //and add a new message
-					e.write(m.toString());
+					this.MegaWrite();
 					System.out.println("1");
 				}
 			
@@ -85,4 +94,5 @@ public class BackEnd
 	{
 		return mes;
 	}
+	
 }
