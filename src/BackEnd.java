@@ -19,6 +19,7 @@ public class BackEnd
 	mes = new ArrayList<Messages>();
 	
 	JFileChooser jc = new JFileChooser("../"); //Jfilechooser to find file to incode too
+	jc.showOpenDialog(null);
 	f= jc.getSelectedFile();
 	e = new Encoder(f);
 	}
@@ -38,6 +39,7 @@ public class BackEnd
 	
 	public void addMessage(String us, String mess)
 	{
+		System.out.println(mess);
 		ArrayList<String> messs = new ArrayList<String>();
 		messs.add(mess);
 		Messages m = new Messages(us,messs);
