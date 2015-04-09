@@ -11,6 +11,7 @@ public class Messages
 		mess = Messages;
 		
 	}
+	
 	public String getUser()
 	{
 		return us;
@@ -22,9 +23,9 @@ public class Messages
 	public String toString()
 	{
 		String s;
-		s = this.getUser() + "	";
+		s = this.getUser() + ": ";
 		for(int i = 0;i<this.getMessages().size();i++)
-			s= s + this.getMessages().get(i) +"	";
+			s= s + this.getMessages().get(i) +"\n";
 		return s;
 	}
 

@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -84,6 +85,12 @@ public class FrontEnd {
 				// TODO Auto-generated method stub
 				String username = userT.getText();
 				String message = messT.getText();
+				ArrayList<String> mess = new ArrayList<>();
+				mess.add(message);
+				Messages m = new Messages(username, mess);
+				String textArea = tA.getText();
+				textArea = textArea + m.toString();
+				tA.setText(textArea);
 				try {
 					bE.addMessage(username, message);
 				} catch (FileNotFoundException e) {
