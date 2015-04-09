@@ -41,7 +41,7 @@ public class Encoder
 			}
 			m.add(new Messages(user,mes));
 			
-			
+			fin.close();
 			
 		}
 		} catch(FileNotFoundException e){
