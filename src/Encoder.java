@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,15 +16,23 @@ public class Encoder
 	}
 	public void write(String plaintext)
 	{
-		try {
-			PrintWriter p = new PrintWriter(plaintext);
-			p.print(plaintext);
-			p.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
+			PrintWriter p;
+
+				try {
+					p = new PrintWriter(f,plaintext);
+					p.print(plaintext);
+					p.close();
+				
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+			
 	}
 	public ArrayList<Messages> read()
 	{
