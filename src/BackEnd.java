@@ -1,6 +1,6 @@
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+//import java.io.FileNotFoundException;
+//import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
@@ -41,19 +41,21 @@ public class BackEnd
 		ArrayList<String> messs = new ArrayList<String>();
 		messs.add(mess);
 		Messages m = new Messages(us,messs);
-		if(this.getUser() == null)//if user name doesn't exist
-		{
-			mes.add(m); //add username and message
+		for(int i = 0; i<mes.size();i++) //find username
+			if(mes.get(i).getUser().equals(us))
+			{
+				mes.get(i).getMessages().add(mess); //and add a new message
+				e.write(m.toString());
+			}
+			else
+			{//if user name doesn't exist
+				mes.add(m); //add username and message
 			
-			e.write(m.toString());
-		}
-		else
-			for(int i = 0; i<mes.size();i++) //otherwise find the username
-				if(mes.get(i).getUser().equals(us))
-				{
-					mes.get(i).getMessages().add(mess); //and add a new message
-					e.write(m.toString());
-				}
+				e.write(m.toString());
+			}
+		
+			
+				
 	
 		
 		
