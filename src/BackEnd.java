@@ -39,26 +39,33 @@ public class BackEnd
 	
 	public void addMessage(String us, String mess)
 	{
-		System.out.println(mess);
+	
 		ArrayList<String> messs = new ArrayList<String>();
 		messs.add(mess);
 		Messages m = new Messages(us,messs);
-		for(int i = 0; i<mes.size();i++) //find username
-			if(mes.get(i).getUser().equals(us))
-			{
-				mes.get(i).getMessages().add(mess); //and add a new message
-				e.write(m.toString());
-			}
-			else
-			{//if user name doesn't exist
-				mes.add(m); //add username and message
-			
-				e.write(m.toString());
-			}
+		if((mes.size()==0))
+		{
+			mes.add(m); //add username and message
+			e.write(m.toString());
+			System.out.println("0");
 		
+		}
+		for(int i = 0; i<mes.size();i++) //find username
+			{
+			if(mes.get(i).getUser().equals(us))
+			
+				{
+					mes.get(i).getMessages().add(mess); //and add a new message
+					e.write(m.toString());
+					System.out.println("1");
+				}
+			
+			}
+			
 			
 				
 	
+		
 		
 		
 	}
