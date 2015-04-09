@@ -61,7 +61,7 @@ public class BackEnd
 			System.out.println("0");
 		
 		}
-		else
+		
 		for(int i = 0; i<mes.size();i++) //find username
 			{
 			if(mes.get(i).getUser().equals(us))
